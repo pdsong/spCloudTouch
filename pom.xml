@@ -12,6 +12,7 @@
         <module>product</module>
         <module>page</module>
         <module>spring-cloud-eureka</module>
+<!--        <module>spring-cloud-gateway-server</module>-->
     </modules>
 
     <properties>
