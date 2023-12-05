@@ -3,7 +3,7 @@ server:
   port: 9200
 spring:
   application:
-  name: lagou-cloud-eureka-server # 应用名称，会在Eureka中作为服务的id标识（serviceId）
+    name: lagou-cloud-eureka-server # 应用名称，会在Eureka中作为服务的id标识（serviceId）
 eureka:
   instance:
     hostname: LagouCloudEurekaServerA

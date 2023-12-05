@@ -1,6 +1,7 @@
 package org.example.page.controller;
 
 import org.example.common.pojo.Products;
+import org.example.page.feign.ProductFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -21,18 +22,22 @@ public class PageController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    @Autowired
+    private ProductFeign productFeign;
+
     @GetMapping("/getData/{id}")
     public Products findDataById(@PathVariable Integer id) {
-
-        List<ServiceInstance> instances = discoveryClient.getInstances("lagou-service-product");
-        ServiceInstance instance = instances.get(0);
-        String host = instance.getHost();
-        int port = instance.getPort();
-        String url = "http://" + host + ":" + port + "/product/query/" + id;
-        Products products =
-                restTemplate.getForObject(url, Products.class);
-        System.out.println("从lagou-service-product获得product对象:" + products);
-        return products;
+//
+//        List<ServiceInstance> instances = discoveryClient.getInstances("lagou-service-product");
+//        ServiceInstance instance = instances.get(0);
+//        String host = instance.getHost();
+//        int port = instance.getPort();
+//        String url = "http://" + host + ":" + port + "/product/query/" + id;
+//        Products products =
+//                restTemplate.getForObject(url, Products.class);
+//        System.out.println("从lagou-service-product获得product对象:" + products);
+//        return products;
+        return productFeign.query(id);
     }
 
 
