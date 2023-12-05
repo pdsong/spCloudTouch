@@ -1,0 +1,10 @@
+server:
+  port: 9000 # 后期该微服务多实例，9000（10个以内）
+Spring:
+  application:
+    name: lagou-service-product
+  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lagou?serverTimezone=UTC&characterEncoding=UTF-8&&useSSL=false
+    username: root
+    password: root
